@@ -98,3 +98,99 @@ The model demonstrated strong ability to distinguish between legitimate and frau
 ```text
 [[56842, 22],
  [18, 80]]
+
+## Top Fraud Predictors
+
+The Logistic Regression model coefficients were analyzed to identify the features that had the strongest influence on the fraud classification.
+
+The top predictors based on the absolute value of the model coefficients were:
+
+| Rank | Feature | Coefficient | Importance |
+|---:|---|---:|---:|
+| 1 | Amount | 2.311589 | 2.311589 |
+| 2 | V1 | 1.652232 | 1.652232 |
+| 3 | V14 | -1.440515 | 1.440515 |
+| 4 | V4 | 1.279250 | 1.279250 |
+| 5 | V10 | -1.265119 | 1.265119 |
+| 6 | V12 | -1.176368 | 1.176368 |
+| 7 | V5 | 1.120480 | 1.120480 |
+| 8 | V2 | 0.994081 | 0.994081 |
+| 9 | V17 | -0.953312 | 0.953312 |
+| 10 | V20 | -0.940625 | 0.940625 |
+
+Importance was calculated using the absolute value of the Logistic Regression coefficient. Since V1–V28 are anonymized features, their coefficients indicate model influence but do not have direct business interpretations.
+
+## Power BI Dashboard
+
+An interactive Power BI dashboard was created to visualize transaction patterns and fraud-related trends.
+
+The dashboard includes:
+
+- Total transaction count
+- Fraud transaction count
+- Fraud rate
+- Legitimate vs fraudulent transactions
+- Average transaction amount by class
+- Fraud rate by transaction amount
+- Fraud transactions by transaction time
+- Transaction amount ranges by fraud class
+- Class distribution
+
+### Dashboard Preview
+
+![Power BI Dashboard](Power%20BI%20Dashboard.png)
+
+## Fraud Detection Interface
+
+A Gradio-based interface was developed to demonstrate real-time fraud prediction using the trained Logistic Regression model.
+
+The interface accepts the 30 transaction features:
+
+- Time
+- V1–V28
+- Amount
+
+The `Class` variable is not provided as an input because it is the target that the model predicts.
+
+The saved model, scaler, and validation-selected classification threshold are used to generate the prediction.
+
+## Conclusion
+
+The credit card fraud detection model was successfully developed and evaluated using the Credit Card Fraud Detection dataset.
+
+The Logistic Regression model achieved a ROC-AUC score of **0.9737** on the unseen test data. Using the validation-selected classification threshold, the model achieved a fraud precision of **0.78**, fraud recall of **0.82**, and fraud F1-score of **0.80**.
+
+The confusion matrix showed that the model correctly identified **80 fraudulent transactions**, while **18 fraudulent transactions** were classified as legitimate. Only **22 legitimate transactions** were incorrectly classified as fraudulent.
+
+Overall, the model demonstrated strong fraud detection performance while maintaining a low number of false positives.
+
+## Future Scope
+
+The project can be further improved by:
+
+- Testing additional machine learning algorithms such as Random Forest, XGBoost, and other ensemble methods
+- Applying advanced techniques for handling severe class imbalance
+- Performing hyperparameter optimization
+- Exploring additional feature engineering techniques
+- Deploying the fraud detection model as a web application or API
+- Integrating the model with real-time transaction monitoring systems
+
+## References
+
+1. Kaggle — Credit Card Fraud Detection Dataset  
+   https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data
+
+2. Scikit-learn — Machine Learning and Model Evaluation Documentation  
+   https://scikit-learn.org/stable/
+
+3. Pandas — Python Data Analysis Library  
+   https://pandas.pydata.org/docs/
+
+4. Matplotlib — Python Visualization Library  
+   https://matplotlib.org/stable/
+
+5. Microsoft Power BI Documentation  
+   https://learn.microsoft.com/en-us/power-bi/create-reports/
+
+6. Gradio Documentation  
+   https://www.gradio.app/docs/gradio/interface
