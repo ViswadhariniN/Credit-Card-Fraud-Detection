@@ -98,6 +98,7 @@ The model demonstrated strong ability to distinguish between legitimate and frau
 ```text
 [[56842, 22],
  [18, 80]]
+```
 
 ## Top Fraud Predictors
 
