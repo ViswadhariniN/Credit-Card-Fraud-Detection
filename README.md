@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project focuses on detecting fraudulent credit card transactions using machine learning. The analysis was performed using the Credit Card Fraud Detection dataset and includes data preprocessing, exploratory data analysis, feature analysis, model development, evaluation, and fraud prediction.
+This project focuses on detecting fraudulent credit card transactions using machine learning. The analysis was performed using the Credit Card Fraud Detection dataset and includes data preprocessing, exploratory data analysis, feature analysis, SQL analysis, model development, evaluation, and fraud prediction.
 
 The project also includes an interactive Power BI dashboard for analyzing fraud patterns and a Gradio-based interface for demonstrating fraud prediction.
 
@@ -32,6 +32,26 @@ The following preprocessing steps were performed:
 - Applied stratified train, validation, and test splitting
 - Standardized numerical features using StandardScaler
 
+The data was divided into training, validation, and test sets to support reliable model development and evaluation.
+
+## SQL Analysis
+
+MySQL was used for initial data extraction and analysis.
+
+The SQL analysis included:
+
+- Total transaction count
+- Transaction count by fraud class
+- Fraud transaction rate
+- Duplicate record identification
+- Missing-value checks
+- Average transaction amount by class
+- Maximum transaction amount by class
+
+The SQL queries used for the analysis are available in:
+
+`week1_queries.sql`
+
 ## Exploratory Data Analysis
 
 The analysis explored:
@@ -58,7 +78,7 @@ A Logistic Regression classifier was developed for fraud detection.
 - Maximum iterations: 1000
 - Classification threshold: Selected using validation data based on F1-score
 
-A separate validation set was used to select the classification threshold before evaluating the final model on the unseen test set.
+A separate validation set was used to select the classification threshold before evaluating the final model on the unseen test set. This helped avoid using the test data for threshold selection.
 
 ## Model Performance
 
@@ -70,6 +90,8 @@ The final model achieved the following results on the unseen test data:
 | Fraud Precision | 0.78 |
 | Fraud Recall | 0.82 |
 | Fraud F1-score | 0.80 |
+
+The model demonstrated strong ability to distinguish between legitimate and fraudulent transactions while maintaining a low number of false positives.
 
 ### Confusion Matrix
 
